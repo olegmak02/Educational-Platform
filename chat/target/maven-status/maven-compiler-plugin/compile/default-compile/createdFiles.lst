@@ -1,0 +1,8 @@
+websocket\WebSocketConfig$1.class
+websocket\JWTChecker.class
+websocket\coursechat\ChatMessage.class
+websocket\WebSocketConfig.class
+websocket\coursechat\ChatController.class
+websocket\ChatApplication.class
+websocket\coursechat\ChatRepository.class
+websocket\UserHandshakeHandler.class

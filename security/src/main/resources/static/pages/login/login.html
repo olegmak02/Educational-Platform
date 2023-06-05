@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="utf-8">
+        <link href="pages/login/login.css"></lind>
+    </head>
+    <body>
+
+
+        <div id="box">
+
+
+            <h3>Вхід</h3>
+
+            <form id="login-form" name="login-form">
+                <div class="username-field">
+                    <label for="username">Ім'я користувача</label>
+                    <input type="text" id="username" name="username" placeholder="Username" autocomplete="off"/>
+                </div>
+                <div class="password-field">
+                    <label for="password">Пароль</label>
+                    <input type="text" id="password" name="password" placeholder="Password" autocomplete="off"/>
+                </div>
+                <div>
+                    <button type="button" id="login-submit">Login</button>
+                </div>
+            </form>
+        </div>
+        <style>
+  .username-field {
+  		margin-top: 55px;
+  		display: flex;
+  		flex-direction: column;
+  }
+
+  .password-field {
+  		margin-top: 55px;
+		display: flex;
+  		flex-direction: column;
+  }
+
+  body {
+  	background: linear-gradient(0.1turn, #f0e0a6, #ebf8e1, #f69d3c);
+  	text-align: center;
+    	align-items: center;
+  }
+
+  h3 {
+  	text-align: center;
+  	font-size: 45px;
+  }
+
+  form {
+  	display: inline-center;
+  }
+
+  label {
+  	font-size: 20px
+  }
+
+  #box {
+  position: absolute;
+  border: 5px solid #C0A522;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  	background-color: white;
+  	width: 400px;
+  height: 530px;
+  border-radius: 30px;
+background:linear-gradient(60deg, rgba(240,230,180, 0.5) 0%, rgba(150,140,100,1) 0%, rgba(255,255, 240,1) 100%)  }
+
+  input {
+  	position: relative;
+  	border: 1px solid greed;
+  	background-color: #ebf8e1;
+  	height: 25px
+  }
+
+  button {
+  	margin-top: 94px;
+  	width: 150px;
+
+  	margin-bottom: 13%;
+  	  	background: linear-gradient(60deg, #f69d3c, #fbfec2, #f69d3c);
+
+  }
+</style>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+
+    <script src="pages/login/login.js"></script>
+    </body>
+</html>
