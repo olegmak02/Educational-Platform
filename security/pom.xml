@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.oleg.educational-platform</groupId>
 	<artifactId>security</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>security</name>
 	<description>Security module for Educational Platform</description>
 	<properties>
@@ -109,7 +109,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>RELEASE</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
 		<dependency>

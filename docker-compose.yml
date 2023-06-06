@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  app:
+    build: ./security
+    depends_on:
+      - db
+    ports:
+      - '8888:8888'
+    command: sh -c "mvn package && java -jar ./target/security-0.0.1.jar"
+  
+  chat:
+    build: ./chat
+    depends_on:
+      - db
+    ports:
+      - '8081:8081'
+    command: sh -c "mvn package && java -jar ./target/chat-0.0.1-SNAPSHOT.jar"
+    
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_PASSWORD=oleg
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=jwt_security
+
+  
+
+

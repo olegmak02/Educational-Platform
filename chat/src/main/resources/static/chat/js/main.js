@@ -105,7 +105,7 @@ function onMessageReceived(payload) {
 
 $(document).ready(function() {
   if (!roomId || !Cookies.get("username") || !Cookies.get("token")) {
-    window.location = 'https://localhost:8888/main';
+    window.location = 'https://app:8888/main';
   }
   document.getElementById("course_title").innerText = title;
   connect();
