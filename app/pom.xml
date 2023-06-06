@@ -8,10 +8,10 @@
 		<version>3.0.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.oleg.educational-platform</groupId>
-	<artifactId>security</artifactId>
+	<groupId>com.oleg.educationalplatform</groupId>
+	<artifactId>app</artifactId>
 	<version>0.0.1</version>
-	<name>security</name>
+	<name>app</name>
 	<description>Security module for Educational Platform</description>
 	<properties>
 		<java.version>17</java.version>

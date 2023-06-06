@@ -1,7 +1,7 @@
 FROM maven:3.8.3-openjdk-17
 
-COPY . /security
-WORKDIR /security
+COPY . /app
+WORKDIR /app
 
 EXPOSE 8888
 
