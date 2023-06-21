@@ -6,7 +6,7 @@ services:
       - db
     ports:
       - '8888:8888'
-    command: sh -c "mvn package && java -jar ./target/security-0.0.1.jar"
+    command: sh -c "mvn package && java -jar ./target/app-0.0.1.jar"
   
   chat:
     build: ./chat

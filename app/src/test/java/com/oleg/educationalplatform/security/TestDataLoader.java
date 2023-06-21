@@ -244,9 +244,9 @@ public class TestDataLoader implements ApplicationRunner {
                 .build();
 
 
-        Path currentRelativePath = Paths.get("");
+        Path currentRelativePath = Paths.get(".");
         String path = currentRelativePath.toAbsolutePath().toString();
-        File file = new File(path + "\\src\\test\\resource\\test.txt");
+        File file = new File(path + "/src/test/resource/test.txt");
         FileInputStream inputStream = new FileInputStream(file);
         MultipartFile multipartFile = new MockMultipartFile("file",
                 file.getName(), "text/plain", IOUtils.toByteArray(inputStream));
