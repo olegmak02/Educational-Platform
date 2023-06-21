@@ -98,6 +98,8 @@ async function getUnfinishedTasks(handler, courseId) {
 }
 
 async function toChats() {
+    changeMenuElementColor(5);
+
     let courses = await getUsersCourses();
     displayCourses(courses);
 
@@ -175,6 +177,7 @@ function toChangePassword() {
 }
 
 function toProfile() {
+    changeMenuElementColor(0);
     fetch("/api/v1/user/my-info", {
         method: 'GET',
         headers: {
@@ -302,6 +305,8 @@ async function getAttachment(id) {
 }
 
 async function toTasks() {
+    changeMenuElementColor(4);
+
     let courses = await getUsersCourses();
 
     document.getElementById("panel").innerHTML = `<button class="panel_element" onclick="getFinishedCourses(toTasksByCourse)">Показати завершені предмети</button>
@@ -399,6 +404,14 @@ async function getAnswer(taskId, studentId) {
                         <button onclick=${"addAssessment(" + studentId + "," + taskId + ")"}>Поставити оцінку</button>`;
 }
 
+function changeMenuElementColor(index) {
+    for (let element of document.querySelectorAll("#menu button")) {
+        element.style.color = "black";
+    }
+
+    document.querySelectorAll("#menu button")[index].style.color = "red";
+}
+
 async function toCheckingTasksByCourse(courseId) {
     const tasks = await fetch(`/api/v1/task/course/${courseId}`, {
         method: "GET",
@@ -424,6 +437,8 @@ async function toCheckingTasksByCourse(courseId) {
 }
 
 async function toChecking() {
+    changeMenuElementColor(8);
+
     let courses = await getUsersCourses();
 
     document.getElementById("panel").innerHTML = `<button class="panel_element" onclick="getFinishedCourses(toTasksByCourse)">Показати завершені предмети</button>

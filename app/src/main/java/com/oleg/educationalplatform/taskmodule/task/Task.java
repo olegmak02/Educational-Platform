@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
 import java.util.List;
@@ -23,7 +24,9 @@ public class Task {
             generator = "post_gen")
     private Integer id;
 
+    @NotNull
     private String title;
+    @NotNull
     private Integer courseId;
     private String taskText;
     private Date creationTime;

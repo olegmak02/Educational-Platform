@@ -10,17 +10,30 @@ import com.oleg.educationalplatform.course.studentcourse.StudentCourseRepository
 import com.oleg.educationalplatform.security.user.Role;
 import com.oleg.educationalplatform.security.user.User;
 import com.oleg.educationalplatform.security.user.UserRepository;
+import com.oleg.educationalplatform.taskmodule.attachment.Attachment;
+import com.oleg.educationalplatform.taskmodule.attachment.AttachmentRepository;
+import com.oleg.educationalplatform.taskmodule.attachment.AttachmentService;
 import com.oleg.educationalplatform.taskmodule.material.Material;
 import com.oleg.educationalplatform.taskmodule.material.MaterialRespository;
 import com.oleg.educationalplatform.taskmodule.task.Task;
 import com.oleg.educationalplatform.taskmodule.task.TaskRepository;
+import com.oleg.educationalplatform.taskmodule.taskanswer.TaskAnswer;
+import com.oleg.educationalplatform.taskmodule.taskanswer.TaskAnswerRepository;
+import org.apache.commons.io.IOUtils;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -42,6 +55,12 @@ public class TestDataLoader implements ApplicationRunner {
     private MaterialRespository materialRespository;
     @Autowired
     private AssessmentRepository assessmentRepository;
+    @Autowired
+    private AttachmentRepository attachmentRepository;
+    @Autowired
+    private AttachmentService attachmentService;
+    @Autowired
+    private TaskAnswerRepository taskAnswerRepository;
 
 
 
@@ -224,6 +243,35 @@ public class TestDataLoader implements ApplicationRunner {
                 .courseId(3)
                 .build();
 
+
+        Path currentRelativePath = Paths.get("");
+        String path = currentRelativePath.toAbsolutePath().toString();
+        File file = new File(path + "\\src\\test\\resource\\test.txt");
+        FileInputStream inputStream = new FileInputStream(file);
+        MultipartFile multipartFile = new MockMultipartFile("file",
+                file.getName(), "text/plain", IOUtils.toByteArray(inputStream));
+
+        Attachment attachment = Attachment.builder()
+                .file(multipartFile)
+                .postId(1)
+                .path(file.getPath())
+                .build();
+
+        Attachment attachment1 = Attachment.builder()
+                .file(multipartFile)
+                .postId(2)
+                .path(file.getPath())
+                .build();
+
+        TaskAnswer answer = TaskAnswer.builder()
+                .date(new Date())
+                .studentId(5)
+                .taskId(52)
+                .build();
+
+        taskAnswerRepository.save(answer);
+        attachmentRepository.save(attachment);
+        attachmentRepository.save(attachment1);
         materialRespository.save(material);
         materialRespository.save(material2);
         materialRespository.save(material3);

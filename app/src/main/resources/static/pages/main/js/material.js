@@ -1,4 +1,6 @@
 async function toMaterials() {
+    changeMenuElementColor(3);
+
     let courses = await getUsersCourses();
 
     document.getElementById("panel").innerHTML = `<button class="panel_element" onclick="getFinishedCourses(getMaterials)">Показати завершені предмети</button>

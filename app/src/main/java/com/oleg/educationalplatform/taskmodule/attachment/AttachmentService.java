@@ -28,7 +28,10 @@ public class AttachmentService {
     private HttpServletRequest request;
 
     public Attachment getAttachmentById(Integer id) {
-        Optional<TaskAnswer> taskAnswer = taskAnswerRepository.findById(id);
+        Attachment attachment = repository.findById(id)
+                .orElseThrow();
+
+        Optional<TaskAnswer> taskAnswer = taskAnswerRepository.findById(attachment.getPostId());
 
         if (taskAnswer.isPresent()) {
             User currentUser = (User) (SecurityContextHolder.getContext().getAuthentication().getPrincipal());
@@ -37,8 +40,7 @@ public class AttachmentService {
             }
         }
 
-        return repository.findById(id)
-                .orElseThrow();
+        return attachment;
     }
 
     public Integer saveAttachment(Attachment attachment) {
@@ -49,7 +51,7 @@ public class AttachmentService {
                     new File(fullPath).mkdir();
                 }
 
-                File destination = new File(fullPath + /*attachment.getTaskId() + "/" +*/ attachment.getFile().getOriginalFilename());
+                File destination = new File(fullPath + attachment.getFile().getOriginalFilename());
 
                 attachment.getFile().transferTo(destination);
 

@@ -305,6 +305,8 @@ async function toTestsByCourse(courseId) {
 }
 
 async function toTests() {
+    changeMenuElementColor(6);
+
     let courses = await getUsersCourses();
 
     document.getElementById("panel").innerHTML = `<button class="panel_element" onclick="getFinishedCourses(toTestsByCourse)">Показати завершені предмети</button>

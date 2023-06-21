@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class Material {
             generator = "post_gen")
     private Integer id;
 
+    @NotNull
     private Integer courseId;
 
     @Transient

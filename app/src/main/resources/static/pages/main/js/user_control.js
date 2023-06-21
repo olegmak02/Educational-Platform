@@ -1,4 +1,6 @@
 async function toStudents() {
+    changeMenuElementColor(7);
+
     let courses = await getUsersCourses();
 
         document.getElementById("panel").innerHTML = "<h2>Курси</h2>";
@@ -105,6 +107,8 @@ async function addUser() {
 }
 
 async function toUsers() {
+    changeMenuElementColor(2);
+
     let users = await fetch("/api/v1/user/all").then(res => res.json());
 
     document.getElementById("panel").innerHTML = "<h2>Користувачі</h2>";

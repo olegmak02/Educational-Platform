@@ -17,6 +17,8 @@ function findCourse(handler) {
 }
 
 async function toAllCourses() {
+    changeMenuElementColor(1);
+
     let courses = await fetch("/api/v1/course/all", {
         method: "GET",
         headers: {
@@ -173,6 +175,8 @@ async function getUsersCourses() {
 
 
 async function toCourses() {
+    changeMenuElementColor(1);
+
     let courses = await getUsersCourses();
 
     document.getElementById("panel").innerHTML = `<button class="panel_element" onclick="getFinishedCourses(getCourseInfo)">Показати завершені предмети</button>

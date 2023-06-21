@@ -35,6 +35,8 @@ function toAssessments(course_id) {
 }
 
 async function toAllAssessments() {
+    changeMenuElementColor(2);
+
     let courses = await getUsersCourses();
 
     document.getElementById("panel").innerHTML = `<button class="panel_element" onclick="getFinishedCourses(toAssessments)">Показати завершені предмети</button>
@@ -53,6 +55,8 @@ async function toAllAssessments() {
 }
 
 function toTeacherAssessment() {
+    changeMenuElementColor(2);
+
     fetch(`/api/v1/course/teacher/${Cookies.get("userId")}`, {
             method: 'GET',
             headers: {

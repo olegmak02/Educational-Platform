@@ -26,9 +26,9 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse registerUser(RegisterRequest request) throws Exception {
-        if (request.getPassword().matches("[0-9]") &&
-                request.getPassword().matches("[a-zA-Z]") &&
-                request.getPassword().length() > 7)
+        if (!request.getPassword().matches(".*[0-9].*") ||
+                !request.getPassword().matches(".*[a-zA-Z].*") ||
+                request.getPassword().length() < 8)
         {
             throw new Exception("Bad password");
         }
